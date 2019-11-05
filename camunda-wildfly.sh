@@ -18,7 +18,7 @@ run-batch
 stop-embedded-server
 EOF
 	/camunda/bin/jboss-cli.sh --file=batch.cli
-	rm -rf /camunda/standalone/configuration/standalone_xml_history/current/* batch.cli
+	rm -rf /camunda/standalone/configuration/standalone_xml_history/current/*
 }
 
 # support legacy DB_DRVIER short names
