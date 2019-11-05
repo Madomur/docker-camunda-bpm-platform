@@ -58,10 +58,13 @@ RUN apk add --no-cache \
 RUN addgroup -g 1000 -S camunda && \
     adduser -u 1000 -S camunda -G camunda -h /camunda -s /bin/bash -D camunda
 WORKDIR /camunda
+
+COPY --from=builder /camunda .
+RUN chown -R camunda:camunda ./*
+
 USER camunda
 
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["./camunda.sh"]
 
 # COPY --chown=camunda:camunda --from=builder /camunda .
-COPY --from=builder /camunda .
