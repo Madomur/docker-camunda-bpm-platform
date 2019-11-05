@@ -60,7 +60,7 @@ RUN addgroup -g 1000 -S camunda && \
 WORKDIR /camunda
 
 COPY --from=builder /camunda .
-RUN chown -R camunda:camunda ./*
+RUN touch batch.cli && chown -R camunda:camunda ./*
 
 USER camunda
 
