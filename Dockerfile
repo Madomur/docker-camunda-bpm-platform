@@ -63,4 +63,5 @@ USER camunda
 ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["./camunda.sh"]
 
-COPY --chown=camunda:camunda --from=builder /camunda .
+# COPY --chown=camunda:camunda --from=builder /camunda .
+COPY --from=builder /camunda .
